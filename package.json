@@ -1,0 +1,13 @@
+{
+  "name": "pagarme-tele-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "node-telegram-bot-api": "^0.24.0"
+  },
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}
