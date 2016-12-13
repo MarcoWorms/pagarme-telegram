@@ -1,12 +1,17 @@
 const TelegramBot = require('node-telegram-bot-api')
-const controller = require('./controller')
+const routes = require('./routes')
 const keys = require('./keys')
 
-function startBot(config = { polling: true }) {
-  return new TelegramBot(keys.BOT, config)
+function startBot (key, config = { polling: true }) {
+  return new TelegramBot(key, config)
 }
 
-const bot = startBot()
+const bot = startBot(keys.BOT)
 
-controller.init(bot, keys.PAGARME)
+routes.forEach((route) => {
+  bot.onText(route.message, route.handler.bind(null, bot))
+})
 
+bot.on('message', (msg) => {
+  console.log(msg)
+})
