@@ -3,4 +3,5 @@ module.exports = [
   require('./menu'),
   require('./transactions'),
   require('./criar-boleto'),
+  require('./card-hash-transaction'),
 ]
